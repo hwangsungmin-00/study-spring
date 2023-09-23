@@ -1,6 +1,7 @@
 package minimin.springstudy.repository;
 
 import minimin.springstudy.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
