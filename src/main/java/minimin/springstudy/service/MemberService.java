@@ -22,11 +22,11 @@ public class MemberService {
     //회원가입
 
     public Long join(Member member){
-
         //같은 이름 중복 회원가입 불가 설정
         validateDuplicateMember(member); //중복 회원 검증
         memberRepository.save(member);
         return member.getId();
+
     }
 
     private void validateDuplicateMember(Member member) {

@@ -1,5 +1,6 @@
 package minimin.springstudy;
 
+import minimin.springstudy.aop.TimeTraceAop;
 import minimin.springstudy.repository.JpaMemberRepository;
 import minimin.springstudy.repository.MemberRepository;
 import minimin.springstudy.service.MemberService;
@@ -30,6 +31,13 @@ public class SpringConfig {
 
         return new MemberService(memberRepository);
     }
+/*
+    @Bean
+    public TimeTraceAop timeTraceAop(){
+        return new TimeTraceAop();
+    }
+
+ */
 /*
     @Bean
     public MemberRepository memberRepository() {
