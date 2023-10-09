@@ -21,13 +21,13 @@ class MemoryMemberRepositoryTest {
 
         repository.save(member);
 
-        Member result = repository.finbyId(member.getId()).get();
+        Member result = repository.findById(member.getId()).get();
         Assertions.assertThat(member).isEqualTo(result);
         // Assertions.assertEquals(member, null);
     }
 
     @Test
-    public void findbyName(){
+    public void findByName(){
         //given -회원가입
         Member member1 = new Member();
         member1.setName("spring1");
@@ -37,7 +37,7 @@ class MemoryMemberRepositoryTest {
         repository.save(member2);
 
         //when
-        Member result = repository.finbyName("spring1").get();
+        Member result = repository.findByName("spring1").get();
 
         //then
         Assertions.assertThat(result).isEqualTo(member1);

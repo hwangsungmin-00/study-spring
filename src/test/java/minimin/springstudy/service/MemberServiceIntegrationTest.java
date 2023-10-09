@@ -2,6 +2,7 @@ package minimin.springstudy.service;
 
 import minimin.springstudy.domain.Member;
 import minimin.springstudy.repository.MemberRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,13 +24,14 @@ public class MemberServiceIntegrationTest {
     @Test
     @Commit
     public void 회원가입() throws Exception {
+
         //Given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("hello4");
         //When
         Long saveId = memberService.join(member);
         //Then
-        Member findMember = memberRepository.finbyId(saveId).get();
+        Member findMember = memberRepository.findById(saveId).get();
         assertEquals(member.getName(), findMember.getName());
     }
     @Test

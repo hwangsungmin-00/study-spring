@@ -22,6 +22,7 @@ public class MemberService {
     //회원가입
 
     public Long join(Member member){
+
         //같은 이름 중복 회원가입 불가 설정
         validateDuplicateMember(member); //중복 회원 검증
         memberRepository.save(member);
@@ -29,7 +30,7 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        memberRepository.finbyName(member.getName())
+        memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
@@ -42,7 +43,7 @@ public class MemberService {
 
     //ID 로 회원 조회
     public Optional<Member> findOne(Long memberId) {
-        return memberRepository.finbyId(memberId);
+        return memberRepository.findById(memberId);
     }
 
 }

@@ -21,13 +21,13 @@ public class JpaMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Optional<Member> finbyId(Long id) {
+    public Optional<Member> findById(Long id) {
         Member memeber =em.find(Member.class, id);
         return Optional.ofNullable(memeber);
     }
 
     @Override
-    public Optional<Member> finbyName(String name) {
+    public Optional<Member> findByName(String name) {
         List<Member> result = em.createQuery("select m from Member m where m.name= :name", Member.class)
                 .setParameter("name", name)
                 .getResultList();

@@ -18,12 +18,12 @@ public class MemoryMemberRepository implements MemberRepository {
     }
 
     @Override
-    public Optional<Member> finbyId(Long id) {
+    public Optional<Member> findById(Long id) {
         return Optional.ofNullable(store.get(id)); //Optional쓰면 반환값이 null이어도 감싸줌
     }
 
     @Override
-    public Optional<Member> finbyName(String name) {
+    public Optional<Member> findByName(String name) {
         return store.values().stream()
                 .filter(member -> member.getName().equals(name)) // 파라미터의 name이랑 name이 같을 떄만 필터 됨
                 .findAny();
